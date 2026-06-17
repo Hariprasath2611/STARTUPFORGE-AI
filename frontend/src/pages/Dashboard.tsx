@@ -39,91 +39,91 @@ export default function Dashboard() {
   ] : [];
 
   return (
-    <div class="space-y-6">
+    <div className="space-y-6">
       {/* Top Welcome Panel */}
-      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gradient-to-r from-surface to-surface/40 p-6 rounded-2xl border border-borderBg">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gradient-to-r from-surface to-surface/40 p-6 rounded-2xl border border-borderBg">
         <div>
-          <h1 class="text-xl sm:text-2xl font-bold font-display">Welcome Back, {user?.name || 'Founder'}</h1>
-          <p class="text-xs sm:text-sm text-textSecondary mt-1">Accelerate your product roadmap and raise capital with StartupForge AI.</p>
+          <h1 className="text-xl sm:text-2xl font-bold font-display">Welcome Back, {user?.name || 'Founder'}</h1>
+          <p className="text-xs sm:text-sm text-textSecondary mt-1">Accelerate your product roadmap and raise capital with StartupForge AI.</p>
         </div>
-        <div class="flex items-center space-x-3 mt-4 sm:mt-0">
+        <div className="flex items-center space-x-3 mt-4 sm:mt-0">
           <select 
             value={activeStartup?._id || ''}
             onChange={(e) => selectStartup(e.target.value)}
-            class="form-input text-xs font-semibold bg-background border border-borderBg py-2"
+            className="form-input text-xs font-semibold bg-background border border-borderBg py-2"
           >
             {startups.map(s => <option key={s._id} value={s._id}>{s.name}</option>)}
             {startups.length === 0 && <option>No workspaces</option>}
           </select>
           <button 
             onClick={() => navigate('/workspace')} 
-            class="p-2 rounded-lg bg-primary hover:bg-secondary text-black shadow-glow transition-all"
+            className="p-2 rounded-lg bg-primary hover:bg-secondary text-black shadow-glow transition-all"
           >
-            <Plus class="h-4 w-4" />
+            <Plus className="h-4 w-4" />
           </button>
         </div>
       </div>
 
       {/* Metrics Row */}
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {/* Metric 1 */}
-        <div class="glass-panel p-5 rounded-2xl flex flex-col justify-between">
-          <div class="flex justify-between items-start">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-textSecondary">Validation Score</span>
-            <span class="p-1.5 rounded-lg bg-primary/10 text-primary"><Lightbulb class="h-4 w-4" /></span>
+        <div className="glass-panel p-5 rounded-2xl flex flex-col justify-between">
+          <div className="flex justify-between items-start">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-textSecondary">Validation Score</span>
+            <span className="p-1.5 rounded-lg bg-primary/10 text-primary"><Lightbulb className="h-4 w-4" /></span>
           </div>
-          <div class="mt-4">
-            <h3 class="font-display text-2xl font-bold">{activeStartup?.validationScore || 0}%</h3>
-            <p class="text-[10px] text-success mt-1">▲ Strong market viability</p>
+          <div className="mt-4">
+            <h3 className="font-display text-2xl font-bold">{activeStartup?.validationScore || 0}%</h3>
+            <p className="text-[10px] text-success mt-1">▲ Strong market viability</p>
           </div>
         </div>
 
         {/* Metric 2 */}
-        <div class="glass-panel p-5 rounded-2xl flex flex-col justify-between">
-          <div class="flex justify-between items-start">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-textSecondary">Market Opportunity</span>
-            <span class="p-1.5 rounded-lg bg-primary/10 text-primary"><Layers class="h-4 w-4" /></span>
+        <div className="glass-panel p-5 rounded-2xl flex flex-col justify-between">
+          <div className="flex justify-between items-start">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-textSecondary">Market Opportunity</span>
+            <span className="p-1.5 rounded-lg bg-primary/10 text-primary"><Layers className="h-4 w-4" /></span>
           </div>
-          <div class="mt-4">
-            <h3 class="font-display text-2xl font-bold">{activeStartup?.marketOpportunity || 0}%</h3>
-            <p class="text-[10px] text-success mt-1">▲ Venture-scale size</p>
+          <div className="mt-4">
+            <h3 className="font-display text-2xl font-bold">{activeStartup?.marketOpportunity || 0}%</h3>
+            <p className="text-[10px] text-success mt-1">▲ Venture-scale size</p>
           </div>
         </div>
 
         {/* Metric 3 */}
-        <div class="glass-panel p-5 rounded-2xl flex flex-col justify-between">
-          <div class="flex justify-between items-start">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-textSecondary">Funding Readiness</span>
-            <span class="p-1.5 rounded-lg bg-primary/10 text-primary"><ShieldCheck class="h-4 w-4" /></span>
+        <div className="glass-panel p-5 rounded-2xl flex flex-col justify-between">
+          <div className="flex justify-between items-start">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-textSecondary">Funding Readiness</span>
+            <span className="p-1.5 rounded-lg bg-primary/10 text-primary"><ShieldCheck className="h-4 w-4" /></span>
           </div>
-          <div class="mt-4">
-            <h3 class="font-display text-2xl font-bold">{activeStartup?.fundingReadiness || 0}%</h3>
-            <p class="text-[10px] text-warning mt-1">● Pitch deck ready</p>
+          <div className="mt-4">
+            <h3 className="font-display text-2xl font-bold">{activeStartup?.fundingReadiness || 0}%</h3>
+            <p className="text-[10px] text-warning mt-1">● Pitch deck ready</p>
           </div>
         </div>
 
         {/* Metric 4 */}
-        <div class="glass-panel p-5 rounded-2xl flex flex-col justify-between">
-          <div class="flex justify-between items-start">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-textSecondary">Startup Health</span>
-            <span class="p-1.5 rounded-lg bg-primary/10 text-primary"><HeartPulse class="h-4 w-4" /></span>
+        <div className="glass-panel p-5 rounded-2xl flex flex-col justify-between">
+          <div className="flex justify-between items-start">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-textSecondary">Startup Health</span>
+            <span className="p-1.5 rounded-lg bg-primary/10 text-primary"><HeartPulse className="h-4 w-4" /></span>
           </div>
-          <div class="mt-4">
-            <h3 class="font-display text-2xl font-bold">{activeStartup?.healthScore || 0}%</h3>
-            <p class="text-[10px] text-success mt-1">▲ 15 mo runway</p>
+          <div className="mt-4">
+            <h3 className="font-display text-2xl font-bold">{activeStartup?.healthScore || 0}%</h3>
+            <p className="text-[10px] text-success mt-1">▲ 15 mo runway</p>
           </div>
         </div>
       </div>
 
       {/* Charts section */}
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Main Growth projection chart */}
-        <div class="glass-panel p-6 rounded-2xl md:col-span-2 space-y-4">
-          <div class="flex justify-between items-center">
-            <h3 class="font-display font-bold text-sm uppercase tracking-wider">Growth Forecast Projection</h3>
-            <span class="text-xs text-textSecondary font-medium">6 Month Estimate</span>
+        <div className="glass-panel p-6 rounded-2xl md:col-span-2 space-y-4">
+          <div className="flex justify-between items-center">
+            <h3 className="font-display font-bold text-sm uppercase tracking-wider">Growth Forecast Projection</h3>
+            <span className="text-xs text-textSecondary font-medium">6 Month Estimate</span>
           </div>
-          <div class="h-64 w-full">
+          <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={chartData}>
                 <defs>
@@ -143,12 +143,12 @@ export default function Dashboard() {
         </div>
 
         {/* Radar Health Chart */}
-        <div class="glass-panel p-6 rounded-2xl flex flex-col justify-between">
-          <h3 class="font-display font-bold text-sm uppercase tracking-wider mb-4">Startup Health Radar</h3>
+        <div className="glass-panel p-6 rounded-2xl flex flex-col justify-between">
+          <h3 className="font-display font-bold text-sm uppercase tracking-wider mb-4">Startup Health Radar</h3>
           {activeStartup ? (
-            <div class="h-56 w-full flex items-center justify-center">
+            <div className="h-56 w-full flex items-center justify-center">
               <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" radius="70%" data={radarData}>
+                <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
                   <PolarGrid stroke="#2B3342" />
                   <PolarAngleAxis dataKey="subject" stroke="#A0AEC0" fontSize={9} />
                   <PolarRadiusAxis stroke="#A0AEC0" fontSize={9} angle={30} domain={[0, 100]} />
@@ -157,77 +157,77 @@ export default function Dashboard() {
               </ResponsiveContainer>
             </div>
           ) : (
-            <div class="text-xs text-textSecondary text-center my-auto">Create a startup workspace to load radar scorecards.</div>
+            <div className="text-xs text-textSecondary text-center my-auto">Create a startup workspace to load radar scorecards.</div>
           )}
         </div>
       </div>
 
       {/* Activity and AI insights panels */}
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* AI Insight Panel */}
-        <div class="glass-panel p-6 rounded-2xl space-y-4 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
-          <div class="flex items-center space-x-2 text-primary">
-            <Sparkles class="h-5 w-5 animate-pulse" />
-            <h3 class="font-display font-bold text-sm uppercase tracking-wider">AI Incubation Advisor Insights</h3>
+        <div className="glass-panel p-6 rounded-2xl space-y-4 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
+          <div className="flex items-center space-x-2 text-primary">
+            <Sparkles className="h-5 w-5 animate-pulse" />
+            <h3 className="font-display font-bold text-sm uppercase tracking-wider">AI Incubation Advisor Insights</h3>
           </div>
-          <div class="space-y-4 text-xs text-textSecondary leading-relaxed">
-            <div class="p-3 bg-surface rounded-xl border border-borderBg">
-              <span class="font-bold text-white block mb-1">🎯 Next Step Recommendation</span>
+          <div className="space-y-4 text-xs text-textSecondary leading-relaxed">
+            <div className="p-3 bg-surface rounded-xl border border-borderBg">
+              <span className="font-bold text-white block mb-1">🎯 Next Step Recommendation</span>
               Your validation score stands at {activeStartup?.validationScore || 70}%. The highest leverage action is to build a standard pitch deck for local VC reviews. Use our automated generator to export a PDF deck.
             </div>
-            <div class="p-3 bg-surface rounded-xl border border-borderBg">
-              <span class="font-bold text-white block mb-1">💡 Competitive Gaps Flagged</span>
+            <div className="p-3 bg-surface rounded-xl border border-borderBg">
+              <span className="font-bold text-white block mb-1">💡 Competitive Gaps Flagged</span>
               Competitors in the {activeStartup?.industry || 'technology'} industry are lacking developer integrations. Standardize your API routing files to secure a unique selling proposition (USP).
             </div>
           </div>
         </div>
 
         {/* Quick Actions Panel */}
-        <div class="glass-panel p-6 rounded-2xl space-y-4">
-          <h3 class="font-display font-bold text-sm uppercase tracking-wider">Quick Actions Portal</h3>
-          <div class="grid grid-cols-2 gap-3">
+        <div className="glass-panel p-6 rounded-2xl space-y-4">
+          <h3 className="font-display font-bold text-sm uppercase tracking-wider">Quick Actions Portal</h3>
+          <div className="grid grid-cols-2 gap-3">
             <button 
               onClick={() => navigate('/validator')}
-              class="p-4 rounded-xl bg-surface hover:bg-[#1E2430] border border-borderBg text-left flex flex-col justify-between h-28 group transition-all"
+              className="p-4 rounded-xl bg-surface hover:bg-[#1E2430] border border-borderBg text-left flex flex-col justify-between h-28 group transition-all"
             >
-              <Lightbulb class="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+              <Lightbulb className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
               <div>
-                <span class="font-bold text-xs block text-white">AI Validator</span>
-                <span class="text-[9px] text-textSecondary">Test startup ideas viability</span>
+                <span className="font-bold text-xs block text-white">AI Validator</span>
+                <span className="text-[9px] text-textSecondary">Test startup ideas viability</span>
               </div>
             </button>
             
             <button 
               onClick={() => navigate('/pitch-deck')}
-              class="p-4 rounded-xl bg-surface hover:bg-[#1E2430] border border-borderBg text-left flex flex-col justify-between h-28 group transition-all"
+              className="p-4 rounded-xl bg-surface hover:bg-[#1E2430] border border-borderBg text-left flex flex-col justify-between h-28 group transition-all"
             >
-              <Layers class="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+              <Layers className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
               <div>
-                <span class="font-bold text-xs block text-white">Pitch Deck</span>
-                <span class="text-[9px] text-textSecondary">Create slide decks</span>
+                <span className="font-bold text-xs block text-white">Pitch Deck</span>
+                <span className="text-[9px] text-textSecondary">Create slide decks</span>
               </div>
             </button>
 
             <button 
               onClick={() => navigate('/simulator')}
-              class="p-4 rounded-xl bg-surface hover:bg-[#1E2430] border border-borderBg text-left flex flex-col justify-between h-28 group transition-all"
+              className="p-4 rounded-xl bg-surface hover:bg-[#1E2430] border border-borderBg text-left flex flex-col justify-between h-28 group transition-all"
             >
-              <TrendingUp class="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+              <TrendingUp className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
               <div>
-                <span class="font-bold text-xs block text-white">Simulation</span>
-                <span class="text-[9px] text-textSecondary">Forecast cash runways</span>
+                <span className="font-bold text-xs block text-white">Simulation</span>
+                <span className="text-[9px] text-textSecondary">Forecast cash runways</span>
               </div>
             </button>
 
             <button 
               onClick={() => navigate('/advisor')}
-              class="p-4 rounded-xl bg-surface hover:bg-[#1E2430] border border-borderBg text-left flex flex-col justify-between h-28 group transition-all"
+              className="p-4 rounded-xl bg-surface hover:bg-[#1E2430] border border-borderBg text-left flex flex-col justify-between h-28 group transition-all"
             >
-              <Users class="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+              <Users className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
               <div>
-                <span class="font-bold text-xs block text-white">AI Advisor</span>
-                <span class="text-[9px] text-textSecondary">Chat with AI Copilot</span>
+                <span className="font-bold text-xs block text-white">AI Advisor</span>
+                <span className="text-[9px] text-textSecondary">Chat with AI Copilot</span>
               </div>
             </button>
           </div>

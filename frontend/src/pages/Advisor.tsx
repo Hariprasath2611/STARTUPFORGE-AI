@@ -52,15 +52,15 @@ export default function Advisor() {
   };
 
   return (
-    <div class="glass-panel rounded-2xl flex flex-col h-[calc(100vh-12rem)] shadow-glass overflow-hidden border border-borderBg">
+    <div className="glass-panel rounded-2xl flex flex-col h-[calc(100vh-12rem)] shadow-glass overflow-hidden border border-borderBg">
       {/* Advisor Header */}
-      <div class="p-4 bg-surface border-b border-borderBg flex items-center justify-between">
-        <div class="flex items-center space-x-2.5">
-          <div class="p-2 rounded-xl bg-primary/10 text-primary animate-pulse"><Bot class="h-5 w-5" /></div>
+      <div className="p-4 bg-surface border-b border-borderBg flex items-center justify-between">
+        <div className="flex items-center space-x-2.5">
+          <div className="p-2 rounded-xl bg-primary/10 text-primary animate-pulse"><Bot className="h-5 w-5" /></div>
           <div>
-            <h3 class="text-sm font-bold font-display text-white">AI Incubator Copilot</h3>
-            <span class="text-[9px] uppercase tracking-wider text-success font-semibold flex items-center">
-              <span class="h-1.5 w-1.5 rounded-full bg-success mr-1"></span>
+            <h3 className="text-sm font-bold font-display text-white">AI Incubator Copilot</h3>
+            <span className="text-[9px] uppercase tracking-wider text-success font-semibold flex items-center">
+              <span className="h-1.5 w-1.5 rounded-full bg-success mr-1"></span>
               Context Memory Active
             </span>
           </div>
@@ -68,13 +68,13 @@ export default function Advisor() {
       </div>
 
       {/* Message scrolling grid */}
-      <div class="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map((m, idx) => (
-          <div key={idx} class={`flex items-start space-x-2.5 max-w-2xl ${m.role === 'user' ? 'ml-auto flex-row-reverse space-x-reverse' : ''}`}>
-            <div class={`p-2 rounded-full ${m.role === 'user' ? 'bg-primary/20 text-primary' : 'bg-surface border border-borderBg text-white'}`}>
-              {m.role === 'user' ? <User class="h-4 w-4" /> : <Bot class="h-4 w-4" />}
+          <div key={idx} className={`flex items-start space-x-2.5 max-w-2xl ${m.role === 'user' ? 'ml-auto flex-row-reverse space-x-reverse' : ''}`}>
+            <div className={`p-2 rounded-full ${m.role === 'user' ? 'bg-primary/20 text-primary' : 'bg-surface border border-borderBg text-white'}`}>
+              {m.role === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
             </div>
-            <div class={`p-3 text-xs leading-relaxed rounded-2xl whitespace-pre-line ${
+            <div className={`p-3 text-xs leading-relaxed rounded-2xl whitespace-pre-line ${
               m.role === 'user' 
                 ? 'bg-primary text-black font-semibold' 
                 : 'bg-surface border border-borderBg text-textSecondary'
@@ -84,11 +84,11 @@ export default function Advisor() {
           </div>
         ))}
         {loading && (
-          <div class="flex items-start space-x-2.5">
-            <div class="p-2 rounded-full bg-surface border border-borderBg text-white"><Bot class="h-4 w-4" /></div>
-            <div class="p-3 bg-surface border border-borderBg rounded-2xl flex items-center space-x-2">
-              <RefreshCw class="h-3.5 w-3.5 text-primary animate-spin" />
-              <span class="text-[10px] text-textSecondary font-semibold">Advisor is typing...</span>
+          <div className="flex items-start space-x-2.5">
+            <div className="p-2 rounded-full bg-surface border border-borderBg text-white"><Bot className="h-4 w-4" /></div>
+            <div className="p-3 bg-surface border border-borderBg rounded-2xl flex items-center space-x-2">
+              <RefreshCw className="h-3.5 w-3.5 text-primary animate-spin" />
+              <span className="text-[10px] text-textSecondary font-semibold">Advisor is typing...</span>
             </div>
           </div>
         )}
@@ -96,19 +96,19 @@ export default function Advisor() {
       </div>
 
       {/* Input panel */}
-      <form class="p-4 bg-[#11141b] border-t border-borderBg flex gap-2" onSubmit={handleSend}>
+      <form className="p-4 bg-[#11141b] border-t border-borderBg flex gap-2" onSubmit={handleSend}>
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask about CAC optimization, pre-seed valuations, SAFEs, or product roadmaps..."
-          class="flex-1 form-input text-xs"
+          className="flex-1 form-input text-xs"
         />
         <button
           type="submit"
-          class="px-4 py-2 bg-primary hover:bg-secondary text-black font-semibold text-xs rounded-xl shadow-glow transition-all flex items-center justify-center"
+          className="px-4 py-2 bg-primary hover:bg-secondary text-black font-semibold text-xs rounded-xl shadow-glow transition-all flex items-center justify-center"
         >
-          <Send class="h-3.5 w-3.5" />
+          <Send className="h-3.5 w-3.5" />
         </button>
       </form>
     </div>

@@ -60,31 +60,31 @@ function SidebarLayout({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div class="min-h-screen bg-[#0F1115] text-white flex">
+    <div className="min-h-screen bg-[#0F1115] text-white flex">
       {/* Sidebar Navigation */}
-      <aside class="w-64 border-r border-borderBg/50 bg-[#12161F] flex flex-col justify-between flex-shrink-0 hidden md:flex">
-        <div class="p-5 flex flex-col space-y-6">
+      <aside className="w-64 border-r border-borderBg/50 bg-[#12161F] flex flex-col justify-between flex-shrink-0 hidden md:flex">
+        <div className="p-5 flex flex-col space-y-6">
           {/* Logo */}
-          <div class="flex items-center space-x-2 cursor-pointer" onClick={() => navigate('/dashboard')}>
-            <Flame class="h-6 w-6 text-primary animate-pulse" />
-            <span class="font-display font-bold text-lg tracking-wider uppercase">
-              Forge<span class="text-primary">.AI</span>
+          <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate('/dashboard')}>
+            <Flame className="h-6 w-6 text-primary animate-pulse" />
+            <span className="font-display font-bold text-lg tracking-wider uppercase">
+              Forge<span className="text-primary">.AI</span>
             </span>
           </div>
 
           {/* User profile capsule */}
-          <div class="p-3 bg-surface rounded-xl border border-borderBg flex items-center space-x-2.5">
-            <div class="h-7 w-7 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs uppercase">
+          <div className="p-3 bg-surface rounded-xl border border-borderBg flex items-center space-x-2.5">
+            <div className="h-7 w-7 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs uppercase">
               {user?.name?.[0] || 'U'}
             </div>
-            <div class="min-w-0">
-              <h4 class="text-xs font-bold truncate text-white">{user?.name || 'Venture Founder'}</h4>
-              <span class="text-[9px] text-textSecondary uppercase tracking-widest font-bold">{user?.role}</span>
+            <div className="min-w-0">
+              <h4 className="text-xs font-bold truncate text-white">{user?.name || 'Venture Founder'}</h4>
+              <span className="text-[9px] text-textSecondary uppercase tracking-widest font-bold">{user?.role}</span>
             </div>
           </div>
 
           {/* Nav Links */}
-          <nav class="space-y-1">
+          <nav className="space-y-1">
             {navItems.map(item => {
               const Icon = item.icon;
               const isActive = location.pathname === item.path;
@@ -92,13 +92,13 @@ function SidebarLayout({ children }: { children: React.ReactNode }) {
                 <Link
                   key={item.path}
                   to={item.path}
-                  class={`flex items-center space-x-2.5 px-3 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all ${
+                  className={`flex items-center space-x-2.5 px-3 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all ${
                     isActive 
                       ? 'bg-primary/10 border border-primary/20 text-primary' 
                       : 'text-textSecondary hover:text-white hover:bg-surface/50'
                   }`}
                 >
-                  <Icon class="h-4 w-4" />
+                  <Icon className="h-4 w-4" />
                   <span>{item.label}</span>
                 </Link>
               );
@@ -107,31 +107,31 @@ function SidebarLayout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Footer Logout */}
-        <div class="p-4 border-t border-borderBg/40">
+        <div className="p-4 border-t border-borderBg/40">
           <button
             onClick={handleLogout}
-            class="w-full flex items-center space-x-2 px-3 py-2 text-xs font-semibold text-textSecondary hover:text-error hover:bg-error/5 rounded-lg transition-all"
+            className="w-full flex items-center space-x-2 px-3 py-2 text-xs font-semibold text-textSecondary hover:text-error hover:bg-error/5 rounded-lg transition-all"
           >
-            <LogOut class="h-4 w-4" />
+            <LogOut className="h-4 w-4" />
             <span>Sign Out</span>
           </button>
         </div>
       </aside>
 
       {/* Main Workspace Frame */}
-      <div class="flex-1 flex flex-col min-w-0 overflow-x-hidden">
+      <div className="flex-1 flex flex-col min-w-0 overflow-x-hidden">
         {/* Mobile Navbar Header */}
-        <header class="h-14 border-b border-borderBg/50 bg-[#12161F]/80 backdrop-blur-md flex items-center justify-between px-4 md:hidden">
-          <div class="flex items-center space-x-2">
-            <Flame class="h-5 w-5 text-primary" />
-            <span class="font-display font-bold text-sm uppercase tracking-wider">Forge AI</span>
+        <header className="h-14 border-b border-borderBg/50 bg-[#12161F]/80 backdrop-blur-md flex items-center justify-between px-4 md:hidden">
+          <div className="flex items-center space-x-2">
+            <Flame className="h-5 w-5 text-primary" />
+            <span className="font-display font-bold text-sm uppercase tracking-wider">Forge AI</span>
           </div>
-          <button onClick={handleLogout} class="text-xs text-textSecondary hover:text-error transition-colors">Sign Out</button>
+          <button onClick={handleLogout} className="text-xs text-textSecondary hover:text-error transition-colors">Sign Out</button>
         </header>
 
         {/* Dynamic page container */}
-        <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
-          <div class="max-w-7xl mx-auto">
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+          <div className="max-w-7xl mx-auto">
             {children}
           </div>
         </main>

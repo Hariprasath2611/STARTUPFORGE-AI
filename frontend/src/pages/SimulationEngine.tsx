@@ -77,65 +77,65 @@ export default function SimulationEngine() {
   };
 
   return (
-    <div class="space-y-6">
+    <div className="space-y-6">
       <div>
-        <h1 class="text-xl sm:text-2xl font-bold font-display">Startup Simulation Engine</h1>
-        <p class="text-xs text-textSecondary mt-1">Stress-test your financial model. Toggle between scenarios to map cash depletion curves.</p>
+        <h1 className="text-xl sm:text-2xl font-bold font-display">Startup Simulation Engine</h1>
+        <p className="text-xs text-textSecondary mt-1">Stress-test your financial model. Toggle between scenarios to map cash depletion curves.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Param inputs panel */}
-        <div class="glass-panel p-6 rounded-2xl h-fit space-y-5">
-          <h3 class="font-display font-bold text-sm uppercase tracking-wider flex items-center">
-            <Wallet class="h-4 w-4 mr-2 text-primary" />
+        <div className="glass-panel p-6 rounded-2xl h-fit space-y-5">
+          <h3 className="font-display font-bold text-sm uppercase tracking-wider flex items-center">
+            <Wallet className="h-4 w-4 mr-2 text-primary" />
             Financial Inputs
           </h3>
 
-          <div class="space-y-4 text-xs">
+          <div className="space-y-4 text-xs">
             <div>
-              <label class="block text-textSecondary font-semibold uppercase tracking-wider mb-2">Starting Capital ($)</label>
+              <label className="block text-textSecondary font-semibold uppercase tracking-wider mb-2">Starting Capital ($)</label>
               <input
                 type="number"
                 value={capital}
                 onChange={(e) => setCapital(Number(e.target.value))}
-                class="w-full form-input"
+                className="w-full form-input"
               />
             </div>
             <div>
-              <label class="block text-textSecondary font-semibold uppercase tracking-wider mb-2">Monthly Expenses ($)</label>
+              <label className="block text-textSecondary font-semibold uppercase tracking-wider mb-2">Monthly Expenses ($)</label>
               <input
                 type="number"
                 value={monthlySpend}
                 onChange={(e) => setMonthlySpend(Number(e.target.value))}
-                class="w-full form-input"
+                className="w-full form-input"
               />
             </div>
             <div>
-              <label class="block text-textSecondary font-semibold uppercase tracking-wider mb-2">Starting Monthly Revenue ($)</label>
+              <label className="block text-textSecondary font-semibold uppercase tracking-wider mb-2">Starting Monthly Revenue ($)</label>
               <input
                 type="number"
                 value={baseRevenue}
                 onChange={(e) => setBaseRevenue(Number(e.target.value))}
-                class="w-full form-input"
+                className="w-full form-input"
               />
             </div>
-            <div class="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-2">
               <div>
-                <label class="block text-textSecondary font-semibold uppercase tracking-wider mb-2">Revenue Growth (%)</label>
+                <label className="block text-textSecondary font-semibold uppercase tracking-wider mb-2">Revenue Growth (%)</label>
                 <input
                   type="number"
                   value={growthRate}
                   onChange={(e) => setGrowthRate(Number(e.target.value))}
-                  class="w-full form-input"
+                  className="w-full form-input"
                 />
               </div>
               <div>
-                <label class="block text-textSecondary font-semibold uppercase tracking-wider mb-2">Target CAC ($)</label>
+                <label className="block text-textSecondary font-semibold uppercase tracking-wider mb-2">Target CAC ($)</label>
                 <input
                   type="number"
                   value={cac}
                   onChange={(e) => setCac(Number(e.target.value))}
-                  class="w-full form-input"
+                  className="w-full form-input"
                 />
               </div>
             </div>
@@ -143,32 +143,32 @@ export default function SimulationEngine() {
         </div>
 
         {/* Projections charts panels */}
-        <div class="md:col-span-2 space-y-6">
+        <div className="md:col-span-2 space-y-6">
           {/* Summary Row */}
-          <div class="grid grid-cols-3 gap-4">
-            <div class="glass-panel p-4 rounded-xl text-center">
-              <span class="text-[9px] uppercase tracking-widest text-textSecondary font-bold">Estimated Runway</span>
-              <h3 class={`font-display text-2xl font-extrabold mt-2 ${runwayMonths >= 12 ? 'text-success' : 'text-error'}`}>
+          <div className="grid grid-cols-3 gap-4">
+            <div className="glass-panel p-4 rounded-xl text-center">
+              <span className="text-[9px] uppercase tracking-widest text-textSecondary font-bold">Estimated Runway</span>
+              <h3 className={`font-display text-2xl font-extrabold mt-2 ${runwayMonths >= 12 ? 'text-success' : 'text-error'}`}>
                 {runwayMonths >= 12 ? "12+ Months" : `${runwayMonths} Months`}
               </h3>
             </div>
-            <div class="glass-panel p-4 rounded-xl text-center">
-              <span class="text-[9px] uppercase tracking-widest text-textSecondary font-bold">Current Net Burn</span>
-              <h3 class="font-display text-2xl font-extrabold text-white mt-2">${netBurn}/mo</h3>
+            <div className="glass-panel p-4 rounded-xl text-center">
+              <span className="text-[9px] uppercase tracking-widest text-textSecondary font-bold">Current Net Burn</span>
+              <h3 className="font-display text-2xl font-extrabold text-white mt-2">${netBurn}/mo</h3>
             </div>
-            <div class="glass-panel p-4 rounded-xl text-center">
-              <span class="text-[9px] uppercase tracking-widest text-textSecondary font-bold">Target valuation</span>
-              <h3 class="font-display text-2xl font-extrabold text-primary mt-2">
+            <div className="glass-panel p-4 rounded-xl text-center">
+              <span className="text-[9px] uppercase tracking-widest text-textSecondary font-bold">Target valuation</span>
+              <h3 className="font-display text-2xl font-extrabold text-primary mt-2">
                 ${Math.round(baseRevenue * 12 * (scenario === 'best' ? 15 : 8) / 1000) * 1000}
               </h3>
             </div>
           </div>
 
           {/* Chart visual block */}
-          <div class="glass-panel p-6 rounded-2xl space-y-4">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-              <h3 class="font-display font-bold text-sm uppercase tracking-wider">Runway Projections Curve</h3>
-              <div class="flex space-x-1.5 text-[10px] font-semibold">
+          <div className="glass-panel p-6 rounded-2xl space-y-4">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+              <h3 className="font-display font-bold text-sm uppercase tracking-wider">Runway Projections Curve</h3>
+              <div className="flex space-x-1.5 text-[10px] font-semibold">
                 {[
                   { id: 'worst', label: 'Worst Case' },
                   { id: 'average', label: 'Average Case' },
@@ -177,7 +177,7 @@ export default function SimulationEngine() {
                   <button
                     key={sc.id}
                     onClick={() => setScenario(sc.id as any)}
-                    class={`px-3 py-1 rounded-lg border transition-all ${
+                    className={`px-3 py-1 rounded-lg border transition-all ${
                       scenario === sc.id 
                         ? 'bg-primary/20 border-primary text-primary' 
                         : 'border-borderBg hover:bg-surface/50 text-textSecondary'
@@ -189,7 +189,7 @@ export default function SimulationEngine() {
               </div>
             </div>
 
-            <div class="h-64 w-full">
+            <div className="h-64 w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={chartData}>
                   <defs>
@@ -202,7 +202,7 @@ export default function SimulationEngine() {
                   <XAxis dataKey="name" stroke="#A0AEC0" fontSize={10} />
                   <YAxis stroke="#A0AEC0" fontSize={10} />
                   <Tooltip contentStyle={{ background: '#161A22', borderColor: '#2B3342', borderRadius: '8px' }} />
-                  <Legend wrapperStyle={{ fontSize: '10px', pt: '10px' }} />
+                  <Legend wrapperStyle={{ fontSize: '10px', paddingTop: '10px' }} />
                   <Area type="monotone" dataKey="CashBalance" stroke="#FF6B00" strokeWidth={2} fillOpacity={1} fill="url(#colorCash)" name="Cash Runway ($)" />
                   <Area type="monotone" dataKey="MonthlyRevenue" stroke="#22C55E" strokeWidth={1.5} fillOpacity={0} name="Monthly Rev ($)" />
                 </AreaChart>
